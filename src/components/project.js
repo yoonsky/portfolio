@@ -18,6 +18,12 @@ import s4 from "../images/s4.JPG";
 import s5 from "../images/s5.JPG";
 import s6 from "../images/s6.JPG";
 
+import d1 from "../images/d1.JPG";
+import d2 from "../images/d2.JPG";
+import d3 from "../images/d3.JPG";
+import d4 from "../images/d4.JPG";
+import d5 from "../images/d5.JPG";
+
 import blog from "../images/blog.PNG";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
@@ -66,6 +72,18 @@ const itemList = [
     p5: "",
     p6: "",
   },
+  {
+    name: "코로나 현상황 알림웹",
+    dev_period: "2021.01.01 ~ 개발중",
+    explan: "코로나 상황 알림웹 제작중입니다.",
+    p1: "1. Next.js 환경에서 React.js를 활용하여 개발중입니다.",
+    p2:
+      "2. front와 backend 집중 개발을 위해 antd 디자인 프레임워크를 사용하였습니다.",
+    p3: "3. DB는 현재 사용하지 않고 공공데이터 api만 사용중입니다. ",
+    p4: "4. 서버는 express.js를 사용중입니다.",
+    p5: "5. AWS를 통해 현재 서버 배포 및 도메인 연결 상태입니다.",
+    p6: "",
+  },
 ];
 
 const Project = () => {
@@ -78,8 +96,10 @@ const Project = () => {
       setSelect(0);
     } else if (option === 2) {
       setSelect(1);
-    } else {
+    } else if (option === 3) {
       setSelect(2);
+    } else {
+      setSelect(3);
     }
 
     document.body.classList.add("hidden");
@@ -127,6 +147,16 @@ const Project = () => {
           </div>
           <div className="proj_description">
             <h3>개인 블로그</h3>
+            <p>상시 업데이트 중</p>
+          </div>
+        </div>
+
+        <div className="project_box" onClick={() => handleProject(4)}>
+          <div className="proj_img">
+            <img src={d1} alt="" />
+          </div>
+          <div className="proj_description">
+            <h3>코로나 현상황 알림웹</h3>
             <p>상시 업데이트 중</p>
           </div>
         </div>
@@ -192,6 +222,21 @@ const Project = () => {
                       <img src={b4} alt="" />
                     </div>
                   </div>
+                )) ||
+                (select === 3 && (
+                  <div className="project_img_box">
+                    <div className="img_container">
+                      <img src={d1} alt="" />
+                      <img src={d2} alt="" />
+                    </div>
+                    <div className="img_container">
+                      <img src={d3} alt="" />
+                      <img src={d4} alt="" />
+                    </div>
+                    <div className="img_container">
+                      <img src={d5} alt="" />
+                    </div>
+                  </div>
                 ))}
             </section>
             <div className="git_web">
@@ -204,7 +249,9 @@ const Project = () => {
                         `https://github.com/seob717/apeach-friends`) ||
                       (select === 1 &&
                         `https://github.com/yoonsky/Dots_Your_Day`) ||
-                      (select === 2 && `https://github.com/seob717/react-store`)
+                      (select === 2 &&
+                        `https://github.com/seob717/react-store`) ||
+                      (select === 3 && `https://github.com/yoonsky/next-covid`)
                     }
                     target="_blank"
                   >
@@ -230,6 +277,11 @@ const Project = () => {
                     )) ||
                     (select === 2 && (
                       <a href="https://seob-ef308.web.app/" target="_blank">
+                        개발 페이지로 이동
+                      </a>
+                    )) ||
+                    (select === 3 && (
+                      <a href="http://coseob.shop/" target="_blank">
                         개발 페이지로 이동
                       </a>
                     ))}
